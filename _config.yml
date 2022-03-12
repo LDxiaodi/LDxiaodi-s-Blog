@@ -102,4 +102,5 @@ theme: fluid
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: ''
+  type: git
+  repo: <repository url> #https://bitbucket.org/JohnSmith/johnsmith.bitbucket.io
