@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>hexo傻狗教程</title>
+    <link href="/LDxiaodi-s-Blog/2022/04/16/hexo%E5%82%BB%E7%8B%97%E6%95%99%E7%A8%8B/"/>
+    <url>/LDxiaodi-s-Blog/2022/04/16/hexo%E5%82%BB%E7%8B%97%E6%95%99%E7%A8%8B/</url>
+    
+    <content type="html"><![CDATA[<ul><li>博客</li><li>技巧分享</li></ul><p>创建hexo静态网页：</p><p>[官方文档](<a href="https://hexo.io/zh-cn/docs/">文档 | Hexo</a>)</p><p><strong>更新hexo文章：</strong></p><p>前提：GitHub已经成功git完毕</p><p>安装一个东西：</p><figure class="highlight ada"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><pre><code class="hljs ada">npm install hexo-deployer-git <span class="hljs-comment">--save</span><br></code></pre></td></tr></table></figure><p>输入一个东西：</p><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli"><span class="hljs-keyword">cd</span> <span class="hljs-string">.deploy_git</span><br>git push -f<br></code></pre></td></tr></table></figure><p>打开网页根目录，右击“用Windows终端”打开，然后输入这个：</p><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs 1c">hexo cl <span class="hljs-string">| hexo d -g</span><br></code></pre></td></tr></table></figure><p>等待成功，不成功一直试就行了。然后等待GitHub pages完成部署。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>技术备忘录</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>干货</tag>
+      
+      <tag>备忘录</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>关于投屏的曲折探索</title>
+    <link href="/LDxiaodi-s-Blog/2022/03/12/%E6%8A%95%E5%B1%8F%E7%9A%84%E6%9B%B2%E6%8A%98%E6%8E%A2%E7%B4%A2/"/>
+    <url>/LDxiaodi-s-Blog/2022/03/12/%E6%8A%95%E5%B1%8F%E7%9A%84%E6%9B%B2%E6%8A%98%E6%8E%A2%E7%B4%A2/</url>
+    
+    <content type="html"><![CDATA[<p>今天是3.12日（发出来估计不是了），傻狗的破壳日=w=，做了一件有意义的事情！</p><h2 id="开端"><a href="#开端" class="headerlink" title="开端"></a>开端</h2><p>网课的时候神游，突然想到一个问题：自己的电脑能不能搞直播？</p><p>去网上查阅了一些资料，貌似直播大型的游戏是不行的，于是我尝试想了另一个招式。</p><p>不是有手机投屏这么个东东吗？咱电脑不就是接收个画面呗，能有啥不方便的，电脑流畅，还可以直播手机上面的游戏！</p><p>哈哈哈，不愧是我傻狗，真聪明！（于是开始尝试）</p><h2 id="被各种苛刻条件疯狂戳屁"><a href="#被各种苛刻条件疯狂戳屁" class="headerlink" title="被各种苛刻条件疯狂戳屁"></a>被各种苛刻条件疯狂戳屁</h2><p>狗子先去找了找市面上主流的投屏软件，诸如乐播投屏和幕享投屏。</p><p>其中乐播咱就不考虑了，好是真的好，但是也是真的贵。</p><p>幕享狗子很喜欢，流畅不卡顿，而且清晰度也不错，于是初次的手机屏幕捕获源确定了。</p><p>（↑此时还没意识到事情的严重性）</p><p>嗯…OBS、游戏源、虚拟形象都好了，接下来就差个直播间了！</p><p>恰巧羊羊（三金羊Sheep）那天中午有一些时间，于是找他借了一下直播间。</p><p>嗯哼…串流码…密钥…好了….卧槽？？？！</p><p>在OBS这边看，效果非常不错，但是在直播间的画面…</p><p>画面：[2分30秒] 被对面拿了一血。（绝对不是我菜，嗯）</p><p>音频：[0分15秒] 好啦，我们选个辅助（开局选人）</p><p>我看了之后，莫名觉得好笑，也想不出到底是什么原因。</p><p>于是我去了解了一下推流的原理：</p><p>这玩意吃上传的带宽！问题一目了然——<strong>投屏软件跟推流抢带宽</strong>。</p><p>狗子现在用的投屏软件，在电脑上面看还好，很不错，但是推流出去之后由于带宽的原因，导致<strong>音画严重不同步</strong>——这对于直播观看体验来说是非常恐怖的。</p><p>狗子为了验证这个猜想是否是正确的，用OBS捕获了我的世界——直播间的反映反而非常好，只有那种整体的延时，但这个是一定会有的。于是我开始寻找<strong>“非网络环境”</strong>下的投屏工具。</p><p>纵使幕享很香，也只能拿来玩玩——我们需要更加实用的。</p><p>说到有线狗子第一个就想到了华为电脑管家对于Harmony OS特别推出的多屏协同功能，效果不错，而且是有线传输，跟带宽什么的不沾边。</p><p>于是狗子去下载了，安装的时候一切安好，但弹出需要重启的提示后，我的电脑（Windows11专业版）蓝屏了！</p><p>你说吧，蓝屏一下子还好说，只是一点错误，重启了说不定就好了——但是它不让我重启。</p><p>狗子每一次重启，在输入电脑PIN的时候，直接再次蓝屏，最恐怖的是，这种情况<strong>连续发生了6次</strong>，我差点以为自己要重装系统了。</p><p>没办法，看了一下蓝屏界面下方的错误文件，开头那俩字母暴露了一切——“Hw”。</p><p>好的，PE上机，删掉华为电脑管家的根目录，然后重启——它就好了。</p><p>决定了，再也不碰华为电脑管家了——第一是太恐怖了；第二，狗子找到了更加厉害的方法：adb环境下的QtScrcpy+Sndcpy</p><h2 id="正式开搞"><a href="#正式开搞" class="headerlink" title="正式开搞"></a>正式开搞</h2><p>其实在之前就听说过scrcpy的大名了，但是一直没办法用——手机是华为的Harmony OS，一直找不到连接方法。</p><p>说来有趣，狗子某一天心情烦躁，去设置界面瞎点，然后…把<strong>开发者模式</strong>瞎点出来了！</p><p>在这么个条件下，狗子准备尝试使用scrcpy了。</p><p>这个方法很成功！顺便也发现了<strong>带有图形界面的QtScrcpy</strong>也可以使用，于是下面的过程就出来了。</p><h2 id="过程（类似于教程）"><a href="#过程（类似于教程）" class="headerlink" title="过程（类似于教程）"></a>过程（类似于教程）</h2><blockquote><p>使用到的资源：</p><p>一台电脑（狗子的是Windows11专业版）</p><p>以及一根数据线，连接手机的那种。</p><p><a href="https://github.com/barry-ran/QtScrcpy">QtScrcpy</a></p><p><a href="https://github.com/rom1v/sndcpy">Sndcpy</a>*需要VLC作为前置</p><p><a href="https://www.videolan.org/">VLC：官方网站 - 全平台的自由多媒体解决方案！ - VideoLAN</a></p></blockquote><h3 id="手机端的操作："><a href="#手机端的操作：" class="headerlink" title="手机端的操作："></a>手机端的操作：</h3><p>狗子使用的手机型号是Huawei Nova 7 5G，目前<strong>主流不过时的华为手机</strong>应该都是可以的，当然是<strong>安卓更好</strong>。</p><p>首先找到设置里的<strong>关于手机</strong>，在版本号那里一直点，直到手机显示<strong>开发者模式已开启</strong>。</p><p>然后去到“系统和更新”，找到<strong>开发人员选项</strong>，往下滑，找到<strong>USB调试</strong>，开启它。</p><p>手机端的操作就完成了。</p><h3 id="电脑端的操作："><a href="#电脑端的操作：" class="headerlink" title="电脑端的操作："></a>电脑端的操作：</h3><p><strong><u>首先确保以下操作建立于你的手机已经通过数据线连接到电脑。</u></strong></p><p><strong>QtScrcpy</strong>：</p><p>由于<strong>有图形界面</strong>，下载解压之后运行应用程序，点击<strong>一键USB连接</strong>就可以啦，这时请<strong>注意手机上的提示</strong>，同意就行，然后你的手机屏幕就去到电脑了！</p><p><strong>Sndcpy</strong>：</p><p><em>（首先把VLC下载安装，这个很简单，安装完成后丢着不管就行，注意VLC一定要安装在默认的位置！）</em></p><p>sndcpy是<strong>没有图形界面</strong>的，下载解压后，运行文件夹内的<strong>Windows批处理文件</strong>（注意千万不要以管理员身份运行，我在这里遇到了问题。），sndcpy在短暂的加载后会在你的<strong>手机上安装一个apk</strong>，安装后点击完成就行，<strong>在连接的过程中请务必确保这个软件后台一直在</strong>。</p><p>如果安装成功了，你的电脑这边的批处理文件窗口会收到一个<strong>类似这样的结果</strong>：</p><figure class="highlight subunit"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><pre><code class="hljs subunit">Waiting for device...<br>Performing Streamed Install<br><span class="hljs-keyword">Success</span><br><span class="hljs-keyword"></span>28200<br>Starting: Intent &#123; act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.rom1v.sndcpy/.MainActivity &#125;<br><br>等待 0 秒，按一个键继续 ...<br>Playing audio...<br></code></pre></td></tr></table></figure><p>这个时候你的电脑就能听到手机的声音了！<strong>（注意不要把这个批处理窗口关了！）</strong>狗子亲测，玩类似于<strong>跳舞的线</strong>这种音游，还是有一点点延迟，大致范围在<strong>100~500ms之间</strong>，如果不是玩音游绰绰有余~（玩音游影响也不大，确信）</p><p>连接电脑之后，手机这边的系统音量是可以关掉的。如果你觉得声音太大了，可以右击你任务栏里的音量键，打开音量合成器去调VLC的音量就行了。</p><h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>嘛…这件事对于狗子来说真的很有意义，先不说直播有多方便了（</p><p>最起码我可以自行解决一些问题了，不是吗？</p><p>在这里也感谢金羊啦，可以和狗子研究这些有趣的东西！</p><p>以上，LDxiaodi</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>傻狗的不定期博客</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>博客</tag>
+      
+      <tag>技巧分享</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>2022年的第一篇博客</title>
+    <link href="/LDxiaodi-s-Blog/2022/02/23/2022%E5%B9%B4%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/"/>
+    <url>/LDxiaodi-s-Blog/2022/02/23/2022%E5%B9%B4%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
+    
+    <content type="html"><![CDATA[<p>今天是2022年1月15日！</p><p>好了…没了？</p><p>就是测试一下在本地如何（浪费了你宝贵的几秒钟</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>傻狗的不定期博客</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>博客</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  
+</search>
